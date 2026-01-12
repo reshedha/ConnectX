@@ -1,0 +1,101 @@
+body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fde2f3, #e0f2fe, #ede9fe);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .app {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #a78bfa, #f472b6, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+
+    #status {
+      font-size: 16px;
+      color: #4b5563;
+      margin-bottom: 20px;
+    }
+
+    /* Board layout only for spacing, no background */
+    #board {
+      display: grid;
+      grid-template-columns: repeat(7, 70px);
+      grid-template-rows: repeat(6, 70px);
+      gap: 14px;
+      justify-content: center;
+    }
+
+    .cell {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.6);
+      box-shadow: 
+        6px 6px 12px rgba(0,0,0,0.1),
+        -6px -6px 12px rgba(255,255,255,0.8);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cell:hover {
+      transform: translateY(-3px);
+      box-shadow: 
+        8px 8px 16px rgba(0,0,0,0.12),
+        -8px -8px 16px rgba(255,255,255,0.9);
+    }
+
+    .red {
+      background: radial-gradient(circle at top left, #fecdd3, #fb7185);
+      animation: drop 0.25s ease;
+    }
+
+    .yellow {
+      background: radial-gradient(circle at top left, #fef9c3, #facc15);
+      animation: drop 0.25s ease;
+    }
+
+    @keyframes drop {
+      from { transform: translateY(-15px); opacity: 0.5; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 12px 32px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #c4b5fd, #f9a8d4);
+      font-weight: 600;
+      color: #1f2937;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      transition: 0.2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+    }
+
+    @media(max-width: 600px) {
+      #board {
+        grid-template-columns: repeat(7, 45px);
+        grid-template-rows: repeat(6, 45px);
+        gap: 10px;
+      }
+      .cell {
+        width: 45px;
+        height: 45px;
+      }
+    }
